@@ -1,4 +1,7 @@
 ﻿@page "/counter"
+@using RazorSharedLibrary.NativeClientInterfaces
+
+@inject IShowDialogBox _showDialogBox;
 
 <PageTitle>Counter</PageTitle>
 
@@ -14,5 +17,6 @@
     private void IncrementCount()
     {
         currentCount++;
+        _showDialogBox.Show();
     }
 }

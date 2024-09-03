@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using BlazorClient.Data;
 using Microsoft.Extensions.DependencyInjection;
+using RazorSharedLibrary.NativeClientInterfaces;
+using WinClient.NativeSupport;
 
 namespace WinClient
 {
@@ -16,6 +18,7 @@ namespace WinClient
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddWpfBlazorWebView();
             serviceCollection.AddSingleton<WeatherForecastService>();
+            serviceCollection.AddSingleton<IShowDialogBox, ShowDialogBox>();
             Resources.Add("services", serviceCollection.BuildServiceProvider());
 
         }
